@@ -18,6 +18,8 @@ class _HomeState extends State<Home> {
   bool isToday = true;
   int currentTime = int.parse(DateTime.now().toString().substring(11,13));
 
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -106,9 +108,16 @@ class _HomeState extends State<Home> {
     ),
   );
 
-  Widget imageWeather(BuildContext context) => Container(
-    child: Image.asset('assets/images/rainy.png'),
-  );
+
+  Widget imageWeather(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
+    return Container(
+      margin: size.width > 600 && size.height > 700
+          ? EdgeInsets.symmetric(vertical: 100) : EdgeInsets.symmetric(vertical: 0),
+      child: Image.asset('assets/images/rainy.png'),
+    );
+  }
 
   Widget detailTemp(BuildContext context) {
 
